@@ -16,10 +16,15 @@ var DB *mongo.Database
 func ConnectDB() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Println("No .env file found — assuming production environment")
 	}
 
-	client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("MONGO_URI")))
+	mongoURI := os.Getenv("MONGO_URI")
+	if mongoURI == "" {
+		log.Fatal("MONGO_URI is not set in the environment")
+	}
+
+	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
 	if err != nil {
 		log.Fatal("Error creating MongoDB client:", err)
 	}
@@ -33,4 +38,5 @@ func ConnectDB() {
 	}
 
 	DB = client.Database("auth_db")
+	log.Println("Successfully connected to MongoDB")
 }
