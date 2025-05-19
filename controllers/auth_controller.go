@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 	"os"
 	"strings"
@@ -38,8 +37,6 @@ func Register(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
-	fmt.Println("Received user:", user)
 
 	if !utils.IsValidEmail(user.Email) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid email format"})

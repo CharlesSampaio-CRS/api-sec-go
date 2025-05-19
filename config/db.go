@@ -33,5 +33,4 @@ func ConnectDB() {
 	}
 
 	DB = client.Database("auth_db")
-	log.Println("Connected to MongoDB!")
 }
