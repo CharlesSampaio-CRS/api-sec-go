@@ -21,13 +21,13 @@
 - Environment configuration via `.env` file.
 
 ## .ENV 
-### MongoDB connection URI
+### 
 MONGODB_URI=mongodb://localhost:27017/api-sec-go-db
 
-### Secret key used to sign JWT tokens
+### 
 JWT_SECRET=your_super_secret_jwt_key
 
-### Port where the API will run
+### 
 PORT=8080
 
 ## Prerequisites
