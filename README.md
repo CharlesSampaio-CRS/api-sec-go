@@ -21,8 +21,13 @@
 - Environment configuration via `.env` file.
 
 ## .ENV 
-MONGODB_URI=mongodb://localhost:27017/api-sec-go-db
+### 
+MONGODB_URI=mongodb://localhost:27017/db-exemplo
+
+### 
 JWT_SECRET=your_super_secret_jwt_key
+
+### 
 PORT=8080
 
 ## Prerequisites
@@ -30,11 +35,7 @@ PORT=8080
 - Go 1.23 or higher installed.
 - MongoDB instance running and accessible.
 - `git` installed to clone the repository.
-
-## Getting Started
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/yourusername/api-sec-go.git
-   cd api-sec-go
+## Get Started 
+- Clone project https://github.com/CharlesSampaio-CRS/api-sec-go 
+- cd api-sec-go 
+- go run main.go
