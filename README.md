@@ -31,10 +31,3 @@ PORT=8080
 - MongoDB instance running and accessible.
 - `git` installed to clone the repository.
 
-## Getting Started
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/yourusername/api-sec-go.git
-   cd api-sec-go
