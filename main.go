@@ -1,22 +1,22 @@
 package main
 
 import (
+	"api-sec-go/config"
+	"api-sec-go/routes"
+
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
+
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+
+	_ "api-sec-go/docs"
 )
 
 func main() {
-	godotenv.Load()
-	ConnectDB()
+	config.ConnectDB()
 
 	r := gin.Default()
-
-	r.POST("/register", Register)
-	r.POST("/login", Login)
-
-	protected := r.Group("/api")
-	protected.Use(AuthMiddleware())
-	protected.GET("/me", Protected)
-
-	r.Run(":8082")
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	routes.SetupRoutes(r)
+	r.Run(":8080")
 }
